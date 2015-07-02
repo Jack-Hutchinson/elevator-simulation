@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		498E41D91B443081001304DB /* ExternalButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E41D81B443081001304DB /* ExternalButtonCell.swift */; };
+		498E41DB1B443DAD001304DB /* InternalButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E41DA1B443DAD001304DB /* InternalButtonCell.swift */; };
+		498E41DD1B444F52001304DB /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E41DC1B444F52001304DB /* ToggleButton.swift */; };
+		498E41DF1B445B65001304DB /* ElevatorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E41DE1B445B65001304DB /* ElevatorConfiguration.swift */; };
+		498E41E11B447221001304DB /* ElevatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E41E01B447221001304DB /* ElevatorManager.swift */; };
+		498E41E61B44FD33001304DB /* FloorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E41E51B44FD33001304DB /* FloorRequest.swift */; };
+		498E41E81B44FD54001304DB /* RequestBin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E41E71B44FD54001304DB /* RequestBin.swift */; };
 		49D018431B43BF1800A374A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D018421B43BF1800A374A2 /* AppDelegate.swift */; };
 		49D018451B43BF1800A374A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D018441B43BF1800A374A2 /* ViewController.swift */; };
 		49D018481B43BF1800A374A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D018461B43BF1800A374A2 /* Main.storyboard */; };
 		49D0184A1B43BF1800A374A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49D018491B43BF1800A374A2 /* Images.xcassets */; };
 		49D0184D1B43BF1800A374A2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D0184B1B43BF1800A374A2 /* LaunchScreen.xib */; };
 		49D018591B43BF1800A374A2 /* ElevatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D018581B43BF1800A374A2 /* ElevatorTests.swift */; };
+		49D018631B43C35500A374A2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D018621B43C35500A374A2 /* SettingsViewController.swift */; };
+		49D1B0431B45AE3600447577 /* ElevatorDoorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1B0421B45AE3600447577 /* ElevatorDoorView.swift */; };
+		64CD000E8CE153355B80217E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD31CD5750349E7F1E8025F0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +36,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3563956AC2020F8B30C2E6D8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		498E41D81B443081001304DB /* ExternalButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExternalButtonCell.swift; sourceTree = "<group>"; };
+		498E41DA1B443DAD001304DB /* InternalButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternalButtonCell.swift; sourceTree = "<group>"; };
+		498E41DC1B444F52001304DB /* ToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		498E41DE1B445B65001304DB /* ElevatorConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElevatorConfiguration.swift; sourceTree = "<group>"; };
+		498E41E01B447221001304DB /* ElevatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElevatorManager.swift; sourceTree = "<group>"; };
+		498E41E51B44FD33001304DB /* FloorRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorRequest.swift; sourceTree = "<group>"; };
+		498E41E71B44FD54001304DB /* RequestBin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBin.swift; sourceTree = "<group>"; };
 		49D0183D1B43BF1800A374A2 /* Elevator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Elevator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D018411B43BF1800A374A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49D018421B43BF1800A374A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +54,11 @@
 		49D018521B43BF1800A374A2 /* ElevatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElevatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D018571B43BF1800A374A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49D018581B43BF1800A374A2 /* ElevatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorTests.swift; sourceTree = "<group>"; };
+		49D018621B43C35500A374A2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		49D018641B43C38800A374A2 /* Elevator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Elevator-Bridging-Header.h"; sourceTree = "<group>"; };
+		49D1B0421B45AE3600447577 /* ElevatorDoorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElevatorDoorView.swift; sourceTree = "<group>"; };
+		6FCEAEA7FB95BB44FB8AD9E6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AD31CD5750349E7F1E8025F0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64CD000E8CE153355B80217E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +80,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		498E41E21B44F577001304DB /* ViewController Classes */ = {
+			isa = PBXGroup;
+			children = (
+				49D018441B43BF1800A374A2 /* ViewController.swift */,
+				49D018621B43C35500A374A2 /* SettingsViewController.swift */,
+			);
+			name = "ViewController Classes";
+			sourceTree = "<group>";
+		};
+		498E41E31B44F694001304DB /* View Classes */ = {
+			isa = PBXGroup;
+			children = (
+				498E41DA1B443DAD001304DB /* InternalButtonCell.swift */,
+				498E41D81B443081001304DB /* ExternalButtonCell.swift */,
+				498E41DC1B444F52001304DB /* ToggleButton.swift */,
+				49D1B0421B45AE3600447577 /* ElevatorDoorView.swift */,
+			);
+			name = "View Classes";
+			sourceTree = "<group>";
+		};
+		498E41E41B44FCDD001304DB /* Manager Class */ = {
+			isa = PBXGroup;
+			children = (
+				498E41DE1B445B65001304DB /* ElevatorConfiguration.swift */,
+				498E41E01B447221001304DB /* ElevatorManager.swift */,
+				498E41E51B44FD33001304DB /* FloorRequest.swift */,
+				498E41E71B44FD54001304DB /* RequestBin.swift */,
+			);
+			name = "Manager Class";
+			sourceTree = "<group>";
+		};
 		49D018341B43BF1800A374A2 = {
 			isa = PBXGroup;
 			children = (
 				49D0183F1B43BF1800A374A2 /* Elevator */,
 				49D018551B43BF1800A374A2 /* ElevatorTests */,
 				49D0183E1B43BF1800A374A2 /* Products */,
+				717FC938B210DF963F7CC0C1 /* Pods */,
+				BED5FEB3EE72C4B2F96DA9F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,8 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				49D018421B43BF1800A374A2 /* AppDelegate.swift */,
-				49D018441B43BF1800A374A2 /* ViewController.swift */,
 				49D018461B43BF1800A374A2 /* Main.storyboard */,
+				498E41E21B44F577001304DB /* ViewController Classes */,
+				498E41E41B44FCDD001304DB /* Manager Class */,
+				498E41E31B44F694001304DB /* View Classes */,
 				49D018491B43BF1800A374A2 /* Images.xcassets */,
 				49D0184B1B43BF1800A374A2 /* LaunchScreen.xib */,
 				49D018401B43BF1800A374A2 /* Supporting Files */,
@@ -91,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				49D018411B43BF1800A374A2 /* Info.plist */,
+				49D018641B43C38800A374A2 /* Elevator-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -112,6 +172,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		717FC938B210DF963F7CC0C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FCEAEA7FB95BB44FB8AD9E6 /* Pods.debug.xcconfig */,
+				3563956AC2020F8B30C2E6D8 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BED5FEB3EE72C4B2F96DA9F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD31CD5750349E7F1E8025F0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49D0185C1B43BF1800A374A2 /* Build configuration list for PBXNativeTarget "Elevator" */;
 			buildPhases = (
+				8AAF80719A14CA56914B2785 /* Check Pods Manifest.lock */,
 				49D018391B43BF1800A374A2 /* Sources */,
 				49D0183A1B43BF1800A374A2 /* Frameworks */,
 				49D0183B1B43BF1800A374A2 /* Resources */,
+				7827A839C6A826864C22924D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,13 +286,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7827A839C6A826864C22924D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AAF80719A14CA56914B2785 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		49D018391B43BF1800A374A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				49D018451B43BF1800A374A2 /* ViewController.swift in Sources */,
+				49D1B0431B45AE3600447577 /* ElevatorDoorView.swift in Sources */,
+				498E41DD1B444F52001304DB /* ToggleButton.swift in Sources */,
+				498E41DB1B443DAD001304DB /* InternalButtonCell.swift in Sources */,
 				49D018431B43BF1800A374A2 /* AppDelegate.swift in Sources */,
+				498E41DF1B445B65001304DB /* ElevatorConfiguration.swift in Sources */,
+				498E41E61B44FD33001304DB /* FloorRequest.swift in Sources */,
+				498E41E11B447221001304DB /* ElevatorManager.swift in Sources */,
+				498E41E81B44FD54001304DB /* RequestBin.swift in Sources */,
+				498E41D91B443081001304DB /* ExternalButtonCell.swift in Sources */,
+				49D018631B43C35500A374A2 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,21 +459,30 @@
 		};
 		49D0185D1B43BF1800A374A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FCEAEA7FB95BB44FB8AD9E6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Elevator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Elevator/Elevator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		49D0185E1B43BF1800A374A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3563956AC2020F8B30C2E6D8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Elevator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Elevator/Elevator-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -409,6 +539,7 @@
 				49D0185E1B43BF1800A374A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49D0185F1B43BF1800A374A2 /* Build configuration list for PBXNativeTarget "ElevatorTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +548,7 @@
 				49D018611B43BF1800A374A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
