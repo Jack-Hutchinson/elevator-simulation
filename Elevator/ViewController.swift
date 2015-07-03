@@ -19,9 +19,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var externalFloorButtons: UICollectionView!
     @IBOutlet weak var elevatorDoorLabel: UILabel!
     
+    @IBOutlet weak var constraintTopCollectionViewHeight:NSLayoutConstraint!;
+    
     let kCellSpacing = CGFloat(3.0)
     let kInternalCellLength = CGFloat(75)
-    let kExternallCellLength = CGFloat(100)
+    let kExternallCellWidth = CGFloat(92)
+    let kExternallCellHeight = CGFloat(95)
     let kNumberOfColumnsInternal = CGFloat(6)
     let kNumberOfColumnsExternal = CGFloat(3)
     var elevatorManager : ElevatorManager = ElevatorManager(configuration: ElevatorConfiguration.lastConfigurationOrDefault())
@@ -109,6 +112,12 @@ class ViewController: UIViewController {
         }
     }
     // MARK: - Actions
+    
+    @IBAction func dragCollectionViewAction(sender: AnyObject) {
+        
+        println("dragging")
+    }
+    
     @IBAction func refreshTapped(sender:AnyObject)
     {
         configureElevatorSystem()
@@ -204,9 +213,7 @@ class ViewController: UIViewController {
         }
         else
         {
-//            width -= kCellSpacing * (kNumberOfColumnsExternal+1)
-//            return CGSizeMake(floor(width/kNumberOfColumnsExternal), floor(width/kNumberOfColumnsExternal))
-            return CGSizeMake(kExternallCellLength, kExternallCellLength)
+            return CGSizeMake(kExternallCellWidth, kExternallCellHeight)
         }
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
