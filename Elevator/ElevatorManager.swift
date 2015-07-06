@@ -37,10 +37,12 @@ class ElevatorManager
     var currentElevatorDirection : ElevatorDirection
     // MARK: - Other Properties
     var configuration : ElevatorConfiguration
-    var requestBin = RequestBin()
-    
     let floorQueue = dispatch_queue_create("floorQueue", DISPATCH_QUEUE_CONCURRENT)
     var sema : dispatch_semaphore_t;
+    
+    var requestBin = RequestBin()
+    let binQueue = dispatch_queue_create("binQueue", DISPATCH_QUEUE_CONCURRENT)
+    
 
     
     // MARK: - Initializers and Initialization
@@ -105,7 +107,8 @@ class ElevatorManager
         }
         if let request = request
         {
-            self.theRequestBin().append(request)
+            self.addToBin(request)
+            
             println("new request: \(request.description) ")
 
             if !isServingRequest
@@ -119,23 +122,29 @@ class ElevatorManager
     // MARK: - Elevator Operation
     func checkElevatorState(direction:ElevatorDirection, floorIndex:Int)
     {
-        if let next = theRequestBin().nextRequestAfter(floorIndex, direction:direction)
-        {
-            self.isServingRequest = true
-            moveToFloor(next)
-        }
-        else if theRequestBin().countQueue>0
-        {
-            if self.currentElevatorDirection == ElevatorDirection.Up
+        
+        nextRequestAfter(floorIndex, direction:direction)
+        {   next in
+                
+            if let next = next
             {
-                self.currentElevatorDirection = ElevatorDirection.Down
+                self.isServingRequest = true
+                self.moveToFloor(next)
             }
-            else if self.currentElevatorDirection == ElevatorDirection.Down
+            else if self.countInBin()>0
             {
-                self.currentElevatorDirection = ElevatorDirection.Up
+                if self.currentElevatorDirection == ElevatorDirection.Up
+                {
+                    self.currentElevatorDirection = ElevatorDirection.Down
+                }
+                else if self.currentElevatorDirection == ElevatorDirection.Down
+                {
+                    self.currentElevatorDirection = ElevatorDirection.Up
+                }
+                self.checkElevatorState(self.currentElevatorDirection, floorIndex: floorIndex)
             }
-            checkElevatorState(self.currentElevatorDirection, floorIndex: floorIndex)
         }
+        
     }
     func moveToFloor(request : FloorRequest)
     {
@@ -190,41 +199,48 @@ class ElevatorManager
             self.currentFloorIndex = floorIndex
             
             // remove any appropriate request made for this floor:
-            if stopAtFloor && request.direction != ElevatorDirection.Ignore
+            if stopAtFloor && request.elevatorDirection() != ElevatorDirection.Ignore
             {
-                self.currentElevatorDirection = request.direction
+                self.currentElevatorDirection = request.elevatorDirection()
             }
             self.updateUIWithFloorState()
 
-            var localStop = self.theRequestBin().removeRequestsForFloor(floorIndex, direction:self.currentElevatorDirection)
-            if localStop || stopAtFloor
-            {
-                self.callbackElevatorDoor(open: true)
-                println("arrived floor \(floorIndex+1)")
-                
-                // delay for opening/closing door
-                self.delay(Double(self.configuration.timeAtFloor), closure: { () -> () in
+            self.removeRequestsForFloor(floorIndex, direction:self.currentElevatorDirection)
+                { (didRemove) in
+                    var localStop = didRemove
                     
-                    self.callbackElevatorDoor(open: false)
-
-                    if stopAtFloor
+                    if localStop || stopAtFloor
                     {
-                        self.isServingRequest = false
-                        if self.checkElevatorDirectionChangeForFloor(floorIndex)
-                        {
-                            self.theRequestBin().removeRequestsForFloor(floorIndex, direction:self.currentElevatorDirection)
-                            self.updateUIWithFloorState()
-                        }
+                        self.callbackElevatorDoor(open: true)
+                        println("arrived floor \(floorIndex+1)")
+                        
+                        // delay for opening/closing door
+                        self.delay(Double(self.configuration.timeAtFloor), closure: { () -> () in
+                            
+                            self.callbackElevatorDoor(open: false)
+                            
+                            if stopAtFloor
+                            {
+                                self.isServingRequest = false
+                                if self.checkElevatorDirectionChangeForFloor(floorIndex)
+                                {
+                                    // direction change, recheck the queue:
+                                    self.removeRequestsForFloor(floorIndex, direction:self.currentElevatorDirection, callback:{(didRemove) in
+                                        self.updateUIWithFloorState()
+                                    })
+                                }
+                            }
+                            self.checkElevatorState(self.currentElevatorDirection, floorIndex: self.currentFloorIndex)
+                            completion()
+                        })
                     }
-                    self.checkElevatorState(self.currentElevatorDirection, floorIndex: self.currentFloorIndex)
-                    completion()
-                })
-            }
-            else
-            {
-                println("passing floor \(floorIndex+1)")
+                    else
+                    {
+                        println("passing floor \(floorIndex+1)")
+                        
+                        completion()
+                    }
 
-                completion()
             }
         }
     }
@@ -268,9 +284,30 @@ class ElevatorManager
             ),
             dispatch_get_main_queue(), closure)
     }
-    func theRequestBin() -> RequestBin
+    // MARK: - Request Bin
+    func countInBin() -> Int
     {
-        return self.requestBin
+        return self.requestBin.countQueue
+    }
+    func removeRequestsForFloor(floorIndex:Int, direction:ElevatorDirection, callback:(Bool)->())
+    {
+        dispatch_barrier_async(self.binQueue, { () -> Void in
+            let removed = self.requestBin.removeRequestsForFloor(floorIndex, direction: direction)
+            callback(removed)
+        })
+    }
+    func nextRequestAfter(floorIndex:Int, direction:ElevatorDirection, callback:(FloorRequest?)->())
+    {
+        dispatch_barrier_async(self.binQueue, { () -> Void in
+            let request = self.requestBin.nextRequestAfter(floorIndex, direction: direction)
+            callback(request)
+        })
+    }
+    func addToBin(request:FloorRequest)
+    {
+        dispatch_barrier_async(self.binQueue, { () -> Void in
+            self.requestBin.append(request)
+        })
     }
     
 }

@@ -82,18 +82,26 @@ class ViewController: UIViewController {
             })
         }
         elevatorManager.callbackCurrentFloorUpdate = { currentFloor in
-            self.currentFloorLabel.text = "Floor \(currentFloor)"
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.currentFloorLabel.text = "Floor \(currentFloor)"
+            })
         }
         elevatorManager.callbackClearButton = { floorIndex, buttonType in
-            if let toggleButton = self.getToggleButtonForIndex(floorIndex, buttonType: buttonType)
-            {
-                toggleButton.clear()
-            }
-            self.setButtonSelected(floorIndex, bval: false, buttonType: buttonType)
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if let toggleButton = self.getToggleButtonForIndex(floorIndex, buttonType: buttonType)
+                {
+                    toggleButton.clear()
+                }
+                self.setButtonSelected(floorIndex, bval: false, buttonType: buttonType)
+            })
         }
         elevatorManager.callbackElevatorDoor = { open in
             
-            self.elevatorDoorLabel.hidden = !open
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.elevatorDoorLabel.hidden = !open
+            })
+
         }
         
         // initialized selected buttons shadow (for cell reuse)

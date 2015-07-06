@@ -27,6 +27,9 @@ class InternalButtonCell: UICollectionViewCell {
     func configureButton(floorNo:Int, isSelected:Bool, topFloorNo:Int, callback:(index:Int, buttonType:ButtonType) -> Void)
     {
         self.floorButton.setTitle("\(floorNo)", forState:.Normal)
+        // in case floor # gets too large:
+        self.floorButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        self.floorButton.titleLabel!.minimumScaleFactor = 0.5
         self.floorButton.selected = isSelected
         self.floorButton.callbackButtonActive = {toggle in
             

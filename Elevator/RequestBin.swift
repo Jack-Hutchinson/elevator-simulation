@@ -26,7 +26,9 @@ class RequestBin
     func removeRequestsForFloor(index:Int, direction:ElevatorDirection) -> Bool
     {
         let cnt = count(data)
-        data = data.filter(){ !(($0.floorIndexCurrent == index && $0.direction==direction) || $0.floorIndexDestination == index) }
+//        data = data.filter(){ !(($0.floorIndexCurrent == index && $0.direction==direction) || $0.floorIndexDestination == index) }
+        data = data.filter(){ !$0.shouldStopAtFloor(index, direction: direction) }
+
         return count(data) < cnt
     }
     func nextRequestAfter(floorIndex:Int, direction:ElevatorDirection) -> FloorRequest?

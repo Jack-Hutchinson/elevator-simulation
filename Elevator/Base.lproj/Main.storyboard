@@ -236,7 +236,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="SCR-uS-3z7" secondAttribute="trailing" constant="-16" id="eA4-Vl-7cj"/>
                             <constraint firstItem="ye0-B4-PtG" firstAttribute="top" secondItem="LMG-PK-1su" secondAttribute="bottom" id="ge5-UG-Qcl"/>
                             <constraint firstItem="SCR-uS-3z7" firstAttribute="leading" secondItem="QC0-Ox-N0D" secondAttribute="leadingMargin" constant="-16" id="iov-Fc-rCw"/>
-                            <constraint firstAttribute="centerY" secondItem="edQ-fP-a9a" secondAttribute="centerY" id="lct-91-KVv"/>
                             <constraint firstItem="4CB-8g-h7t" firstAttribute="top" secondItem="edQ-fP-a9a" secondAttribute="bottom" id="oZi-WU-vvv"/>
                             <constraint firstItem="beQ-yr-UMt" firstAttribute="leading" secondItem="QC0-Ox-N0D" secondAttribute="leadingMargin" id="riF-FS-a8Y"/>
                             <constraint firstItem="t8A-CZ-3Jm" firstAttribute="trailing" secondItem="QC0-Ox-N0D" secondAttribute="trailingMargin" id="rrS-yw-XQj"/>
@@ -244,11 +243,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ye0-B4-PtG" secondAttribute="trailing" constant="-16" id="vMC-P7-r0V"/>
                             <constraint firstItem="SCR-uS-3z7" firstAttribute="height" secondItem="4CB-8g-h7t" secondAttribute="height" id="xmL-GS-wM1"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="lct-91-KVv"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="NLG-Sr-YA6">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="qdg-au-bn0">

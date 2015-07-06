@@ -15,10 +15,10 @@ class FloorRequest
     //  Mode B: elevator direction specified from request source
 
     // MARK: - Constants and Properties
-    let IgnoreIndex = -1
-    var floorIndexDestination : Int
-    var floorIndexCurrent : Int
-    var direction : ElevatorDirection
+    private var direction : ElevatorDirection
+    private let IgnoreIndex = -1
+    private var floorIndexDestination : Int
+    private var floorIndexCurrent : Int
     
     // MARK: - Initializers
     init(floorIndex:Int)
@@ -45,6 +45,16 @@ class FloorRequest
             let dir = self.direction == ElevatorDirection.Up ? "Up" : "Down"
             return "Request \(dir) from floor \(floorIndexCurrent+1)"
         }
+    }
+    //         data = data.filter(){ !(($0.floorIndexCurrent == index && $0.direction==direction) || $0.floorIndexDestination == index) }
+
+    func shouldStopAtFloor(floorIndex:Int, direction:ElevatorDirection) -> Bool
+    {
+        return (floorIndexCurrent == floorIndex && self.direction == direction) || (floorIndexDestination == floorIndex)
+    }
+    func elevatorDirection() -> ElevatorDirection
+    {
+        return self.direction
     }
     func floorIndex() -> Int
     {
